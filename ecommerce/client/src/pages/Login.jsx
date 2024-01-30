@@ -14,16 +14,25 @@ import { Link } from 'react-router-dom'
 import {useUser} from '../store/user.jsx'
 import { useState } from "react"
 import {useNavigate} from 'react-router-dom'
+import { useToast } from "@/components/ui/use-toast"
 
 
 const Login = () => {
 
+ const { toast } = useToast()
 const {loginUser} = useUser()
 const [LoginData, setLoginData] = useState({})
 const navigate = useNavigate()
 
 const handleChange = (e) => {
   setLoginData({...LoginData, [e.target.name]: e.target.value})
+}
+
+const  toastMessage =({message,variant}) =>{
+  toast({
+    description: `${message}`,
+    variant: `${variant}`,
+  })
 }
 
 const handleSubmit = async (e) => {
@@ -38,10 +47,11 @@ const handleSubmit = async (e) => {
     })
     const data = await res.json()
     if (data.success===false) {
-      alert(data.message)
+      toastMessage({message: data.message,variant:'destructive'})
       return
     }
-    alert('Login successful')
+
+    toastMessage({message: data.message,variant:'outline'})
     loginUser(data.token)
     navigate('/')
   } catch (error) {
