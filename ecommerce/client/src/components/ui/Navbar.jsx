@@ -1,9 +1,13 @@
 import React from 'react'
-import { Button } from "client/src/components/ui/button"
+import { Button } from "@/components/ui/button"
 import { FaCartArrowDown } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { useUser } from '@/store/user.jsx';
+import Profile from './profile';
 
 const Navbar = () => {
+  const { userData ,isLoggedIn} = useUser();
   return (
     <div className='flex justify-between px-[1rem] py-[1.2rem] items-center'>
       <div className='flex gap-[10rem]'>
@@ -16,13 +20,27 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-      <div className='flex gap-[1rem] items-center'>
+      <div className='flex gap-[1rem] items-center mr-[2rem]'>
+        {isLoggedIn ? (
+        <>
+          <Avatar>
+            <AvatarImage src="" />
+            <AvatarFallback>{<FaCartArrowDown />}</AvatarFallback>
+          </Avatar>
+          <Profile/>
+        </>
+        )
+        : 
+        (
+        <>
         <Link to='/signin'>
         <Button>Sign In</Button>
         </Link>
         <Link to='/signup'>
         <Button>Sign up</Button>
-        </Link>
+        </Link></>
+  )
+    }
         {/* <FaCartArrowDown  className='text-2xl'/> */}
 
       </div>

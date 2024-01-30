@@ -2,11 +2,14 @@ import express from 'express'
 import connectDB from './db/index.js'
 import dotenv from 'dotenv'
 import authRoutes from './routes/auth.route.js'
-
-
-dotenv.config()
+import cors from 'cors'
 
 const app = express()
+
+app.use(cors())
+dotenv.config()
+
+
 app.use(express.json())
 
 connectDB().then(() => {
