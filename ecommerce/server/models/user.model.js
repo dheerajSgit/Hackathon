@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
     password: { type: String, required: true },
     cart : [{
         product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
-        quantity: { type: Number, default: 1 },
+        quantity: { type: Number },
     }],
     orders: [{
         products: [{
@@ -22,6 +22,8 @@ const userSchema = new mongoose.Schema({
         dateOrdered: { type: Date, default: Date.now },
     }],
 });
+
+
 
 const User = mongoose.model('User', userSchema);
 
