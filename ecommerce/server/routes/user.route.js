@@ -1,11 +1,16 @@
-import express from 'express'
-import {getCart, addProductToCart, removeProductFromCart, updateProductQuantity} from '../controllers/user.controller.js'
+import express from "express";
+import {
+  getCart,
+  addProductToCart,
+  removeProductFromCart,
+  updateProductQuantity,
+} from "../controllers/user.controller.js";
 
-const router = express.Router()
+const router = express.Router();
 
-router.get('/cart/:email', getCart)
-router.post('/cart/:email/:productId', addProductToCart)
-router.delete('/cart/:email/:productId', removeProductFromCart)
-router.put('/cart/:email/:productId', updateProductQuantity)
+router.get("/:email", getCart);
+router.post("/:email/:id", addProductToCart);
+router.delete("/:email/:id", removeProductFromCart);
+router.put("/:email/:id", updateProductQuantity);
 
-export default router
+export default router;

@@ -44,7 +44,7 @@ const Signup = () => {
         return
       }
       loginUser(data.token)
-      addUserData(data.user)
+      addUserData(data.result)
       alert('Account created successfully')
       navigate('/')
     } catch (error) {

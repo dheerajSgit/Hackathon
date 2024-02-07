@@ -20,7 +20,7 @@ import { useToast } from "@/components/ui/use-toast"
 const Login = () => {
 
  const { toast } = useToast()
-const {loginUser} = useUser()
+const {loginUser,addUserData} = useUser()
 const [LoginData, setLoginData] = useState({})
 const navigate = useNavigate()
 
@@ -53,6 +53,8 @@ const handleSubmit = async (e) => {
 
     toastMessage({message: data.message,variant:'outline'})
     loginUser(data.token)
+    addUserData(data.result)
+    console.log(data.result);
     navigate('/')
   } catch (error) {
     console.log(error);
