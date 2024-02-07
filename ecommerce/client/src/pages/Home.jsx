@@ -7,7 +7,7 @@ const Home = () => {
 useEffect( ()=> {
     async function fetchData() {
     try {
-    const response = await fetch('http://ec2-13-48-30-49.eu-north-1.compute.amazonaws.com:3000/api/products/')
+    const response = await fetch('https://nego-bot.dheerajxdev.live/api/products/')
     const data = await response.json()
     addProducts(data)
     } catch (error) {
