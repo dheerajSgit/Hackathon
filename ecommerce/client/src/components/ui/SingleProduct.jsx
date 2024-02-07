@@ -43,7 +43,7 @@ const SingleProduct = () => {
 
   const handleaddToCart = async() => {
     try {
-      const res = await fetch(`http://localhost:3000/api/users/${userData?.email}/${id}`, {
+      const res = await fetch(`http://ec2-13-48-30-49.eu-north-1.compute.amazonaws.com:3000/api/users/${userData?.email}/${id}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
