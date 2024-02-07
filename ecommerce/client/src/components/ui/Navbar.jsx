@@ -20,7 +20,7 @@ const Navbar = () => {
   return (
     <div className='flex justify-between px-[1rem] py-[1.2rem] items-center'>
       <div className='flex gap-[10rem]'>
-        <Link to='/' className='font-bold text-4xl font-mono'>Ecomm</Link>
+        <Link to='/' className='font-bold text-4xl font-mono'>Nego-Ecomm</Link>
         <div>
           <ul className='flex gap-[3rem]'>
             <li className='text-xl hover:border-b-4 hover:border-black hover:cursor'>Fashion</li>
