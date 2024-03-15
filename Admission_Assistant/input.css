@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.filtered-container {
+    position: relative;
+    display: inline-block;
+    background-image: url('./assists/iit-kanpur.jpg');
+    background-size: cover;
+    width: 100vw;
+    height: 700px;
+  }
+
+  .filtered-container::before {
+    content: "Meet Your Personal Admissions Assistant: Click to Chat with Our AI Bot!";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color:#032D6C;
+    opacity: 0.5; 
+    z-index: 1;
+    color:aliceblue;
+    font-size: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+  }
+
+  .chat-btn{
+    width: 200px;
+    height: 50px;
+    background-color: #032D6C;
+    color: white;
+    border: none;
+  }

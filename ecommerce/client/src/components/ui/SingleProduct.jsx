@@ -31,7 +31,7 @@ const SingleProduct = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(`https://nego-bot.dheerajxdev.live/api/products/${id}`)
+        const response = await fetch(`http://localhost:3000/api/products/${id}`)
         const data = await response.json()
         setProduct(data)
       } catch (error) {
@@ -43,7 +43,7 @@ const SingleProduct = () => {
 
   const handleaddToCart = async() => {
     try {
-      const res = await fetch(`https://nego-bot.dheerajxdev.live/api/users/${userData?.email}/${id}`, {
+      const res = await fetch(`http://localhost:3000/api/users/${userData?.email}/${id}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
